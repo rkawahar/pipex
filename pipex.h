@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:27 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/24 17:32:51 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:14:15 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,9 @@ int		split_str(char **ans, char const *s, char c);
 void	ft_free(char **s, size_t index);
 void	str_index_cpy(size_t start, size_t end, char const *s, char *ans);
 size_t	counter(char const *s, char c);
+void	ft_connect_nord(t_cmd **lst, t_cmd *new);
+void	ft_to_first(t_cmd **lst);
+void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif

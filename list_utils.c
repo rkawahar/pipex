@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/24 18:40:11 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:21:15 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,32 @@ t_cmd	*first_lst(void)
 	return (nil);
 }
 
-void	ft_insert_info(t_cmd **lst, int num, char **argv, char **env)
+void	ft_to_first(t_cmd **lst)
 {
-	int i;
+	while ((*lst)-> cmd != NULL)
+		(*lst) = (*lst)-> pre;
+}
 
-	i = 0;
-	while (i < num)
+void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
+{
+	int 	i;
+	char	**cmd;
+
+	i = 2;
+	if (ft_strncmp(argv[1], "fere_doc", 9) == 0)
+		i++;
+	while (i < argc - 1)
 	{
-		
+		(*lst) = (*lst)-> next; 
+		(*lst)-> arg = ft_split(argv[i], ' ');
+		if ((*lst)-> arg == NULL)
+			malloc_error();
+		(*lst)-> cmd = (*lst)-> cmd[0];
+		(*lst)-> path = ft_path((*lst)-> cmd, env);
+		if ((*lst)-> path == NULL)
+			malloc_error();
 	}
+	ft_to_first(lst);
 }
 
 void	ft_create_lst(int argc, char **argv, char **env, t_cmd **lst)
@@ -67,5 +84,5 @@ void	ft_create_lst(int argc, char **argv, char **env, t_cmd **lst)
 		tmp = first_lst();
 		ft_connect_nord(lst, tmp);
 	}
-	ft_insert_info(lst, num, argv, env);
+	ft_insert_info(lst, argc, argv, env);
 }
