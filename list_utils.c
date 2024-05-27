@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/24 20:21:15 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:20:25 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_connect_nord(t_cmd **lst, t_cmd *new)
 {
 	t_cmd	*tmp;
 
-	(*lst)-> next = tmp;
+	tmp = (*lst)-> next;
 	(*lst)-> next = new;
 	new -> next = tmp;
 	tmp -> pre = new;
@@ -27,7 +27,7 @@ t_cmd	*first_lst(void)
 {
 	t_cmd	*nil;
 
-	nil = (char *)malloc(sizeof(t_cmd));
+	nil = (t_cmd *)malloc(sizeof(t_cmd));
 	if (nil == NULL)
 	{
 		write(2, "malloc error", 13);
@@ -50,10 +50,9 @@ void	ft_to_first(t_cmd **lst)
 void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 {
 	int 	i;
-	char	**cmd;
 
 	i = 2;
-	if (ft_strncmp(argv[1], "fere_doc", 9) == 0)
+	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 		i++;
 	while (i < argc - 1)
 	{
@@ -61,10 +60,11 @@ void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 		(*lst)-> arg = ft_split(argv[i], ' ');
 		if ((*lst)-> arg == NULL)
 			malloc_error();
-		(*lst)-> cmd = (*lst)-> cmd[0];
+		(*lst)-> cmd = (*lst)-> arg[0];
 		(*lst)-> path = ft_path((*lst)-> cmd, env);
 		if ((*lst)-> path == NULL)
 			malloc_error();
+		i++;
 	}
 	ft_to_first(lst);
 }
@@ -83,6 +83,8 @@ void	ft_create_lst(int argc, char **argv, char **env, t_cmd **lst)
 		tmp = (t_cmd *)malloc(sizeof(t_cmd));
 		tmp = first_lst();
 		ft_connect_nord(lst, tmp);
+		num--;
 	}
 	ft_insert_info(lst, argc, argv, env);
+	(*lst) = (*lst)-> next;
 }

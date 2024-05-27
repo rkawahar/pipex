@@ -6,49 +6,33 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:40:06 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/24 20:13:57 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:50:15 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static int	checker(char al, char const *set)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == al)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	start;
-	size_t	end;
-	size_t	i;
 	char	*ans;
+	size_t	len1;
+	size_t	len2;
+	size_t	i;
 
-	if (s1 == NULL || set == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	end = ft_strlen(s1) - 1;
-	start = 0;
-	while (checker(s1[start], set))
-		start++;
-	if (start == ft_strlen(s1))
-		return (ft_strdup(""));
-	while (checker(s1[end], set))
-		end--;
-	ans = (char *)malloc(sizeof(char) * (end - start + 2));
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	ans = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (ans == NULL)
 		return (NULL);
+	ft_strlcpy(ans, s1, len1 + 1);
 	i = 0;
-	while (start <= end)
-		ans[i++] = s1[start++];
-	ans[i] = '\0';
+	while (i < len2)
+	{
+		ans[len1 + i] = s2[i];
+		i++;
+	}
+	ans[i + len1] = '\0';
 	return (ans);
 }

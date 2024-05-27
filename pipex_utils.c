@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:24:13 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/24 17:13:10 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:36:06 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,24 @@ void	write_error(void)
 {
 	perror(NULL);
 	exit(1);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	len;
+
+	dst = (char *)dst;
+	len = ft_strlen(src);
+	i = 0;
+	if (dstsize != 0)
+	{
+		while (i < dstsize - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (len);
 }

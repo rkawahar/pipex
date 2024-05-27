@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/24 17:28:44 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:28:48 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ char	*pipex_gnl(char *eof)
 		len++;
 		ans = re_create(ans, tmp);
 	}
+	ans[len - ft_strlen(eof) - 2] = '\0';
 	return (ans);
 }
 
@@ -93,5 +94,5 @@ int	ft_here_doc(char *eof)
 		write_error();
 	write(pipe1[1], str, ft_strlen(str) - ft_strlen(eof));
 	close(pipe1[1]);
-	return (pipe1[2]);
+	return (pipe1[0]);
 }
