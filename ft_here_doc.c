@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/27 14:28:48 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/05/30 00:34:13 by kawaharadar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	ft_here_doc(char *eof)
 	str = pipex_gnl(eof);
 	if (pipe(pipe1) < 0)
 		write_error();
-	write(pipe1[1], str, ft_strlen(str) - ft_strlen(eof));
+	write(pipe1[1], str, ft_strlen(str));
 	close(pipe1[1]);
 	return (pipe1[0]);
 }
