@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/30 00:34:13 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2024/05/31 13:03:29 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*re_create(char *str, char tmp)
 	char	*ans;
 	int		i;
 
-	ans = (char *)malloc(tmp + 1);
+	ans = (char *)malloc(ft_strlen(str) + 2);
 	if (ans == NULL)
 		malloc_error();
 	i = -1;
