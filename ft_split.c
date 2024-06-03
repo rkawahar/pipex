@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 21:23:35 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/03 16:37:22 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/04 05:08:31 by kawaharadar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,10 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	cnt;
 	char	**ans;
-	int		i;
 
 	if (s == NULL)
 		return (NULL);
 	cnt = counter(s, c);
-	printf("cnt = %zu\n", cnt);
 	ans = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (ans == NULL)
 		return (NULL);
@@ -99,8 +97,5 @@ char	**ft_split(char const *s, char c)
 		free(ans);
 		return (NULL);
 	}
-	i = -1;
-	while (ans[++i])
-		printf("ans[%d] = %s\n", i, ans[i]);
 	return (ans);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/03 14:46:25 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/04 07:06:02 by kawaharadar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	checker(char *str, char *eof)
 	}
 	while (str[i])
 	{
-		if (ft_strncmp(&str[i], eof, ft_strlen(new_eof)) == 0)
+		if (ft_strncmp(&str[i], new_eof, ft_strlen(new_eof)) == 0)
 			return (1);
 		i++;
 	}
