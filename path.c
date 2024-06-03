@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:55:09 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/27 13:57:37 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:35:11 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ char	*ft_path(char *cmd, char **env)
 		i++;
 	bin = ft_split(env[i], ':');
 	if (bin == NULL)
-		malloc_error();
+		malloc_error(6);
 	i = 0;
 	while (i++ < 5)
 		bin[0]++;
-	i = 0;
+	i = 0;	
 	while (bin[i] != NULL)
 	{
 		tmp = ft_strjoin(bin[i], "/");
 		tmp = ft_strjoin(tmp, cmd);
 		if (tmp == NULL)
-			malloc_error();
+			malloc_error(7);
 		if (access(tmp, F_OK) == 0)
 			return (tmp);
 		i++;

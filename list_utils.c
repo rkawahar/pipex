@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/27 15:20:25 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:31:15 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_to_first(t_cmd **lst)
 
 void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 {
-	int 	i;
+	int i;
 
 	i = 2;
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
@@ -59,11 +59,11 @@ void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 		(*lst) = (*lst)-> next; 
 		(*lst)-> arg = ft_split(argv[i], ' ');
 		if ((*lst)-> arg == NULL)
-			malloc_error();
+			malloc_error(4);
 		(*lst)-> cmd = (*lst)-> arg[0];
 		(*lst)-> path = ft_path((*lst)-> cmd, env);
 		if ((*lst)-> path == NULL)
-			malloc_error();
+			malloc_error(5);
 		i++;
 	}
 	ft_to_first(lst);

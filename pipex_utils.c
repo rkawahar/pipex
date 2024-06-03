@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:24:13 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/27 13:36:06 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:47:53 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ size_t	ft_strlen(const char *s)
 	return (ans);
 }
 
-void	malloc_error(void)
+void	malloc_error(int i)
 {
+	ft_printf("number = %d\n", i);
 	write(2, "malloc error", 13);
 	exit(1);
 }

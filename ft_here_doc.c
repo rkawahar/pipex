@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/05/31 13:03:29 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:46:25 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_eof(char *eof)
 
 	ans = (char *)malloc(ft_strlen(eof) + 2);
 	if (ans == NULL)
-		malloc_error();
+		malloc_error(1);
 	ans[0] = '\n';
 	i = 1;
 	while (eof[i - 1])
@@ -33,13 +33,19 @@ char	*ft_eof(char *eof)
 
 int	checker(char *str, char *eof)
 {
-	int	i;
+	int		i;
+	char	*new_eof;
 
 	i = 0;
-	eof = ft_eof(eof);
+	new_eof = ft_eof(eof);
+	if (ft_strncmp(str, eof, ft_strlen(eof)) == 0)
+	{
+		if (str[ft_strlen(eof)] == '\n')
+			return (1);
+	}
 	while (str[i])
 	{
-		if (ft_strncmp(&str[i], eof, ft_strlen(eof)) == 0)
+		if (ft_strncmp(&str[i], eof, ft_strlen(new_eof)) == 0)
 			return (1);
 		i++;
 	}
@@ -53,7 +59,7 @@ char	*re_create(char *str, char tmp)
 
 	ans = (char *)malloc(ft_strlen(str) + 2);
 	if (ans == NULL)
-		malloc_error();
+		malloc_error(2);
 	i = -1;
 	while (str[++i])
 		ans[i] = str[i];
@@ -69,10 +75,11 @@ char	*pipex_gnl(char *eof)
 	char	tmp;
 	int		len;
 
-	ans = (char *)malloc(sizeof(1));
+	ans = (char *)malloc(1);
 	if (ans == NULL)
-		malloc_error();
+		malloc_error(3);
 	ans[0] = '\0';
+	write(1, "> ", 2);
 	len = 0;
 	while (checker(ans, eof) == 0)
 	{
@@ -80,7 +87,7 @@ char	*pipex_gnl(char *eof)
 		len++;
 		ans = re_create(ans, tmp);
 	}
-	ans[len - ft_strlen(eof) - 2] = '\0';
+	ans[len - ft_strlen(eof) - 1] = '\0';
 	return (ans);
 }
 
