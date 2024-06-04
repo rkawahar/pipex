@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:27 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/03 14:47:12 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:26:49 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ size_t	counter(char const *s, char c);
 void	ft_connect_nord(t_cmd **lst, t_cmd *new);
 void	ft_to_first(t_cmd **lst);
 void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env);
-char	*ft_strdup(const char *s1);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_path(char *cmd, char **env);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -61,5 +60,7 @@ int		ft_print_itoa(int num, int len);
 int		ft_to_hexaddress(unsigned long int num, int len);
 int		ft_to_hex(unsigned int num, int len);
 int		ft_to_upperhex(unsigned int num, int len);
+char	*ft_path2(char **bin, char *cmd);
+void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file);
 
 #endif

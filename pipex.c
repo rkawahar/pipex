@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:14 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/04 07:08:57 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2024/06/04 11:01:34 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

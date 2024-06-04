@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/03 16:31:15 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/04 13:24:42 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ void	ft_to_first(t_cmd **lst)
 
 void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 {
-	int i;
+	int	i;
 
 	i = 2;
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 		i++;
 	while (i < argc - 1)
 	{
-		(*lst) = (*lst)-> next; 
+		(*lst) = (*lst)-> next;
 		(*lst)-> arg = ft_split(argv[i], ' ');
 		if ((*lst)-> arg == NULL)
 			malloc_error(4);
@@ -80,7 +80,6 @@ void	ft_create_lst(int argc, char **argv, char **env, t_cmd **lst)
 		num = argc - 3;
 	while (0 < num)
 	{
-		tmp = (t_cmd *)malloc(sizeof(t_cmd));
 		tmp = first_lst();
 		ft_connect_nord(lst, tmp);
 		num--;
