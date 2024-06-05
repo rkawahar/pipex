@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/04 13:24:42 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/05 15:40:20 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 		(*lst)-> cmd = (*lst)-> arg[0];
 		(*lst)-> path = ft_path((*lst)-> cmd, env);
 		if ((*lst)-> path == NULL)
-			malloc_error(5);
+		{
+			ft_printf("%s: command not found\n", (*lst)-> cmd);
+			exit(1);
+		}
 		i++;
 	}
 	ft_to_first(lst);

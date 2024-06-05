@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/04 07:06:02 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2024/06/05 16:30:17 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_eof(char *eof)
 	char	*ans;
 	int		i;
 
-	ans = (char *)malloc(ft_strlen(eof) + 2);
+	ans = (char *)malloc(ft_strlen(eof) + 3);
 	if (ans == NULL)
 		malloc_error(1);
 	ans[0] = '\n';
@@ -27,7 +27,8 @@ char	*ft_eof(char *eof)
 		ans[i] = eof[i - 1];
 		i++;
 	}
-	ans[i] = '\n';
+	ans[i++] = '\n';
+	ans[i] = '\0';
 	return (ans);
 }
 
@@ -41,14 +42,21 @@ int	checker(char *str, char *eof)
 	if (ft_strncmp(str, eof, ft_strlen(eof)) == 0)
 	{
 		if (str[ft_strlen(eof)] == '\n')
+		{
+			free(new_eof);
 			return (1);
+		}
 	}
 	while (str[i])
 	{
 		if (ft_strncmp(&str[i], new_eof, ft_strlen(new_eof)) == 0)
+		{
+			free(new_eof);
 			return (1);
+		}
 		i++;
 	}
+	free(new_eof);
 	return (0);
 }
 
@@ -101,5 +109,6 @@ int	ft_here_doc(char *eof)
 		write_error();
 	write(pipe1[1], str, ft_strlen(str));
 	close(pipe1[1]);
+	free(str);
 	return (pipe1[0]);
 }

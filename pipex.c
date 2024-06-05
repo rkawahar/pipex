@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:14 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/04 11:01:34 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:54:28 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_lastjob(int fd, int file_fd)
 	{
 		read_byte = read(fd, &tmp, 1);
 		if (read_byte == 0)
-			break;
+			break ;
 		else if (read_byte < 0)
 			write_error();
 		str = re_create(str, tmp);
@@ -59,6 +59,7 @@ void	ft_lastjob(int fd, int file_fd)
 	if (read_byte < 0)
 		write_error();
 	close(file_fd);
+	free(str);
 }
 
 void	ft_pipex(t_cmd *lst, int fd_in, char **env, int file_fd)
@@ -82,7 +83,7 @@ void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file)
 	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
 	{
 		*fd = ft_here_doc(argv[2]);
-		*last_file_fd = open(file , O_CREAT | O_WRONLY | O_APPEND, 0000644);
+		*last_file_fd = open(file, O_CREAT | O_WRONLY | O_APPEND, 0000644);
 	}
 	else if (access(argv[1], F_OK) != 0)
 	{
@@ -92,7 +93,7 @@ void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file)
 	else
 	{
 		*fd = open(argv[1], O_RDWR);
-		*last_file_fd = open(file , O_CREAT | O_TRUNC | O_WRONLY, 0000644);
+		*last_file_fd = open(file, O_CREAT | O_TRUNC | O_WRONLY, 0000644);
 	}
 }
 
@@ -114,11 +115,4 @@ int	main(int argc, char **argv, char **env)
 		write_error();
 	ft_create_lst(argc, argv, env, &cmd);
 	ft_pipex(cmd, fd, env, last_file_fd);
-}
-
-#include <libc.h>
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q a.out");
 }
