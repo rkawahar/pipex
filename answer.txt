@@ -24,3 +24,23 @@ total 216
 -rw-r--r--  1 rkawahar  2020   1663  6  3 14:47 pipex_utils.c
 -rw-r--r--  1 rkawahar  2020   1888  6  5 18:31 pipex_utils.o
 -rw-r--r--  1 rkawahar  2020      0  6  5 16:52 test.txt
+qwertyuiop
+asdfghjkl
+qwertyuio
+qwertyuio
+qqqqqqqqqq
+66666666666666
+666666666
+66666
+6
+333333333333333
+333333333
+3333
+222222222222222
+222222222
+22222
+22222222
+2
+22222222222
+222eof
+eof2

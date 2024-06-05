@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 16:30:17 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:59:11 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,15 @@ char	*pipex_gnl(char *eof)
 	ans[0] = '\0';
 	write(1, "> ", 2);
 	len = 0;
-	while (checker(ans, eof) == 0)
+	while (1)
 	{
 		read(0, &tmp, 1);
 		len++;
 		ans = re_create(ans, tmp);
+		if (checker(ans, eof) != 0)
+			break ;
+		if (tmp == '\n')
+			write(1, "> ", 2);
 	}
 	ans[len - ft_strlen(eof) - 1] = '\0';
 	return (ans);
