@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 15:40:20 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:04:24 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,7 @@ void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 	while (i < argc - 1)
 	{
 		(*lst) = (*lst)-> next;
-		(*lst)-> arg = ft_split(argv[i], ' ');
-		if ((*lst)-> arg == NULL)
-			malloc_error(4);
-		(*lst)-> cmd = (*lst)-> arg[0];
+		ft_judge_absolute(*lst, argv, i);
 		(*lst)-> path = ft_path((*lst)-> cmd, env);
 		if ((*lst)-> path == NULL)
 		{
