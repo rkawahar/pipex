@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:55:09 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 16:07:36 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/06 20:27:49 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ char	*ft_path2(char **bin, char *cmd)
 		free(tmp);
 		i++;
 	}
-	return (NULL);
+	if (cmd == NULL)
+		return (NULL);
+	else
+		return ("nothing");
 }
 
 char	*ft_path(char *cmd, char **env)

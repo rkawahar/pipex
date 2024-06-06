@@ -1,46 +1,27 @@
-total 216
--rw-r--r--  1 rkawahar  2020   1289  6  5 18:05 Makefile
--rw-r--r--  1 rkawahar  2020   1293  6  5 18:02 absolute_path.c
--rw-r--r--  1 rkawahar  2020    948  6  5 18:31 absolute_path.o
--rw-r--r--  1 rkawahar  2020      0  6  5 18:32 answer.txt
--rw-r--r--  1 rkawahar  2020   2348  6  5 16:30 ft_here_doc.c
--rw-r--r--  1 rkawahar  2020   2772  6  5 18:31 ft_here_doc.o
--rw-r--r--@ 1 rkawahar  2020   2856  5 27 19:12 ft_print_specifier.c
--rw-r--r--  1 rkawahar  2020   3120  6  5 18:31 ft_print_specifier.o
--rw-r--r--@ 1 rkawahar  2020   2205  5 27 19:10 ft_printf.c
--rw-r--r--  1 rkawahar  2020   3436  6  5 18:31 ft_printf.o
--rw-r--r--  1 rkawahar  2020   2137  6  5 15:19 ft_split.c
--rw-r--r--  1 rkawahar  2020   2016  6  5 18:31 ft_split.o
--rw-r--r--  1 rkawahar  2020   1337  5 27 13:50 ft_strtrim.c
--rw-r--r--  1 rkawahar  2020    972  6  5 18:31 ft_strtrim.o
--rw-r--r--  1 rkawahar  2020   2174  6  5 18:04 list_utils.c
--rw-r--r--  1 rkawahar  2020   2228  6  5 18:31 list_utils.o
--rw-r--r--  1 rkawahar  2020   1880  6  5 16:07 path.c
--rw-r--r--  1 rkawahar  2020   2036  6  5 18:31 path.o
--rwxr-xr-x  1 rkawahar  2020  19316  6  5 18:31 pipex
--rw-r--r--  1 rkawahar  2020   2885  6  5 16:54 pipex.c
--rw-r--r--  1 rkawahar  2020   2712  6  5 18:03 pipex.h
--rw-r--r--  1 rkawahar  2020   3008  6  5 18:31 pipex.o
--rw-r--r--  1 rkawahar  2020   1663  6  3 14:47 pipex_utils.c
--rw-r--r--  1 rkawahar  2020   1888  6  5 18:31 pipex_utils.o
--rw-r--r--  1 rkawahar  2020      0  6  5 16:52 test.txt
-qwertyuiop
-asdfghjkl
-qwertyuio
-qwertyuio
-qqqqqqqqqq
-66666666666666
-666666666
-66666
-6
-333333333333333
-333333333
-3333
-222222222222222
-222222222
-22222
-22222222
-2
-22222222222
-222eof
-eof2
+Makefile
+a.out
+a.out.dSYM
+absolute_path.c
+absolute_path.o
+answer.txt
+ft_here_doc.c
+ft_here_doc.o
+ft_print_specifier.c
+ft_print_specifier.o
+ft_printf.c
+ft_printf.o
+ft_split.c
+ft_split.o
+ft_strtrim.c
+ft_strtrim.o
+list_utils.c
+list_utils.o
+path.c
+path.o
+pipex
+pipex.c
+pipex.h
+pipex.o
+pipex_utils.c
+pipex_utils.o
+test.txt

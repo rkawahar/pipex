@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:27 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 18:03:08 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/06 20:03:36 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char	*ft_path2(char **bin, char *cmd);
 void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file);
 void	ft_free_bin(char **bin);
 void	ft_judge_absolute(t_cmd *lst, char **argv, int index);
+char	*ft_strdup(const char *s1);
 
 #endif

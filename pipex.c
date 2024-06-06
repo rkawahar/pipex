@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:14 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 16:54:28 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/06 20:00:21 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,14 @@ void	ft_pipex(t_cmd *lst, int fd_in, char **env, int file_fd)
 
 	if (lst -> path == NULL)
 		ft_lastjob(fd_in, file_fd);
+	else if (ft_strncmp(lst -> path, "nothing\0", 8) == 0)
+		ft_pipex(lst -> next, fd_in, env, file_fd);
 	else
 	{
 		if (pipe(new_pipe) < 0)
 			write_error();
 		fd_in = ft_middlejob(&lst, fd_in, env, new_pipe);
-		ft_pipex(lst-> next, fd_in, env, file_fd);
+		ft_pipex(lst -> next, fd_in, env, file_fd);
 	}
 	exit(0);
 }
@@ -88,6 +90,7 @@ void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file)
 	else if (access(argv[1], F_OK) != 0)
 	{
 		ft_printf("%s: No such file or directory", argv[1]);
+		*last_file_fd = open(file, O_CREAT | O_TRUNC | O_WRONLY, 0000644);
 		exit(1);
 	}
 	else

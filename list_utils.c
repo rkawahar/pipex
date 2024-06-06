@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:57:05 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 18:04:24 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/06 20:28:26 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,8 @@ void	ft_insert_info(t_cmd **lst, int argc, char **argv, char **env)
 		(*lst) = (*lst)-> next;
 		ft_judge_absolute(*lst, argv, i);
 		(*lst)-> path = ft_path((*lst)-> cmd, env);
-		if ((*lst)-> path == NULL)
-		{
+		if (ft_strncmp((*lst)-> path, "nothing", 7) == 0)
 			ft_printf("%s: command not found\n", (*lst)-> cmd);
-			exit(1);
-		}
 		i++;
 	}
 	ft_to_first(lst);
