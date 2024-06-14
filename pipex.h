@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:27 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/06 20:03:36 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:51:17 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_eof(char *eof);
 int		checker(char *str, char *eof);
 char	*pipex_gnl(char *eof);
 char	*re_create(char *str, char tmp);
-void	write_error(void);
+void	write_error(char *str);
 void	ft_create_lst(int argc, char **argv, char **env, t_cmd **lst);
 char	**ft_split(char const *s, char c);
 int		split_str(char **ans, char const *s, char c);
@@ -63,7 +63,7 @@ int		ft_to_upperhex(unsigned int num, int len);
 char	*ft_path2(char **bin, char *cmd);
 void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file);
 void	ft_free_bin(char **bin);
-void	ft_judge_absolute(t_cmd *lst, char **argv, int index);
+void	ft_judge_absolute(t_cmd *lst, char **argv, int index, char **env);
 char	*ft_strdup(const char *s1);
 
 #endif

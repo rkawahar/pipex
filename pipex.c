@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:45:14 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/06 20:00:21 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:23:15 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	ft_middlejob(t_cmd **lst, int fd_in, char **env, int *new_pipe)
 	else if (pid == 0)
 	{
 		if (dup2(fd_in, 0) < 0 || dup2(new_pipe[1], 1) < 0)
-			write_error();
+			write_error((*lst)-> cmd);
 		e_flg = execve((*lst)-> path, (*lst)-> arg, env);
 		if (e_flg < 0)
-			write_error();
+			write_error((*lst)-> cmd);
 	}
 	else
-		write_error();
+		write_error((*lst)-> cmd);
 	close(fd_in);
 	close(new_pipe[1]);
 	return (new_pipe[0]);
@@ -51,13 +51,13 @@ void	ft_lastjob(int fd, int file_fd)
 		if (read_byte == 0)
 			break ;
 		else if (read_byte < 0)
-			write_error();
+			write_error(NULL);
 		str = re_create(str, tmp);
 	}
 	close(fd);
 	read_byte = write(file_fd, str, ft_strlen(str));
 	if (read_byte < 0)
-		write_error();
+		write_error(NULL);
 	close(file_fd);
 	free(str);
 }
@@ -69,11 +69,14 @@ void	ft_pipex(t_cmd *lst, int fd_in, char **env, int file_fd)
 	if (lst -> path == NULL)
 		ft_lastjob(fd_in, file_fd);
 	else if (ft_strncmp(lst -> path, "nothing\0", 8) == 0)
+	{
+		fd_in = ft_middlejob(&lst, fd_in, env, new_pipe);
 		ft_pipex(lst -> next, fd_in, env, file_fd);
+	}
 	else
 	{
 		if (pipe(new_pipe) < 0)
-			write_error();
+			write_error(lst -> cmd);
 		fd_in = ft_middlejob(&lst, fd_in, env, new_pipe);
 		ft_pipex(lst -> next, fd_in, env, file_fd);
 	}
@@ -89,7 +92,7 @@ void	ft_decide_fd(int *fd, int *last_file_fd, char **argv, char *file)
 	}
 	else if (access(argv[1], F_OK) != 0)
 	{
-		ft_printf("%s: No such file or directory", argv[1]);
+		ft_printf("%s: No such file or directory\n", argv[1]);
 		*last_file_fd = open(file, O_CREAT | O_TRUNC | O_WRONLY, 0000644);
 		exit(1);
 	}
@@ -115,7 +118,7 @@ int	main(int argc, char **argv, char **env)
 		exit(0);
 	ft_decide_fd(&fd, &last_file_fd, argv, file);
 	if (last_file_fd < 0)
-		write_error();
+		write_error(NULL);
 	ft_create_lst(argc, argv, env, &cmd);
 	ft_pipex(cmd, fd, env, last_file_fd);
 }

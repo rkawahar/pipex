@@ -1,0 +1,26 @@
+total 224
+-rw-r--r--  1 rkawahar  2020   1289  6 14 13:13 Makefile
+-rw-r--r--  1 rkawahar  2020   1486  6 14 15:10 absolute_path.c
+-rw-r--r--  1 rkawahar  2020   1240  6 14 17:24 absolute_path.o
+-rw-r--r--  1 rkawahar  2020   2413  6 14 13:53 ft_here_doc.c
+-rw-r--r--  1 rkawahar  2020   2844  6 14 17:24 ft_here_doc.o
+-rw-r--r--  1 rkawahar  2020   2856  6 14 13:13 ft_print_specifier.c
+-rw-r--r--  1 rkawahar  2020   3120  6 14 17:24 ft_print_specifier.o
+-rw-r--r--  1 rkawahar  2020   2205  6 14 13:13 ft_printf.c
+-rw-r--r--  1 rkawahar  2020   3436  6 14 17:24 ft_printf.o
+-rw-r--r--  1 rkawahar  2020   2137  6 14 13:13 ft_split.c
+-rw-r--r--  1 rkawahar  2020   2016  6 14 17:24 ft_split.o
+-rw-r--r--  1 rkawahar  2020   1337  6 14 13:13 ft_strtrim.c
+-rw-r--r--  1 rkawahar  2020    972  6 14 17:24 ft_strtrim.o
+-rw-r--r--  1 rkawahar  2020   2160  6 14 15:17 list_utils.c
+-rw-r--r--  1 rkawahar  2020   2192  6 14 17:24 list_utils.o
+-rw-r--r--  1 rkawahar  2020      0  6 14 17:25 outfile
+-rw-r--r--  1 rkawahar  2020   1927  6 14 13:13 path.c
+-rw-r--r--  1 rkawahar  2020   2084  6 14 17:24 path.o
+-rwxr-xr-x  1 rkawahar  2020  19364  6 14 17:24 pipex
+-rw-r--r--  1 rkawahar  2020   3175  6 14 17:23 pipex.c
+-rw-r--r--  1 rkawahar  2020   2762  6 14 14:51 pipex.h
+-rw-r--r--  1 rkawahar  2020   3344  6 14 17:24 pipex.o
+-rw-r--r--  1 rkawahar  2020   1759  6 14 13:50 pipex_utils.c
+-rw-r--r--  1 rkawahar  2020   1984  6 14 17:24 pipex_utils.o
+----------  1 rkawahar  2020     47  6 14 17:20 test.txt

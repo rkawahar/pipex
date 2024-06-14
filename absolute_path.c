@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:15:52 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/06 20:03:20 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:10:31 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ char	*ft_strdup(const char *s1)
 	return (ans);
 }
 
-void	ft_judge_absolute(t_cmd *lst, char **argv, int index)
+void	ft_judge_absolute(t_cmd *lst, char **argv, int index, char **env)
 {
-	char	**tmp;
 	int		i;
 
 	i = 0;
@@ -36,14 +35,10 @@ void	ft_judge_absolute(t_cmd *lst, char **argv, int index)
 	if (lst -> arg == NULL)
 		malloc_error(4);
 	if (lst -> arg[0][0] == '/')
+		lst -> path = lst -> arg[0];
+	else
 	{
-		tmp = ft_split(lst -> arg[0], '/');
-		if (tmp == NULL)
-			malloc_error(11);
-		while (tmp[i])
-			i++;
-		i--;
-		lst -> arg[0] = tmp[i];
+		lst -> cmd = lst -> arg[0];
+		lst -> path = ft_path(lst -> cmd, env);
 	}
-	lst -> cmd = lst -> arg[0];
 }

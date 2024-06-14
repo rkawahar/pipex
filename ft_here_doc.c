@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:37:17 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/05 18:59:11 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:53:23 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	ft_here_doc(char *eof)
 
 	str = pipex_gnl(eof);
 	if (pipe(pipe1) < 0)
-		write_error();
+		write_error(NULL);
 	write(pipe1[1], str, ft_strlen(str));
 	close(pipe1[1]);
 	free(str);

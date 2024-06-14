@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:24:13 by rkawahar          #+#    #+#             */
-/*   Updated: 2024/06/03 14:47:53 by rkawahar         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:50:53 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,19 @@ void	malloc_error(int i)
 	exit(1);
 }
 
-void	write_error(void)
+void	write_error(char *str)
 {
-	perror(NULL);
-	exit(1);
+	if (str == NULL)
+	{
+		perror(NULL);
+		exit(1);
+	}
+	else
+	{
+		ft_printf("%s: ", str);
+		perror(NULL);
+		exit(1);
+	}
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
